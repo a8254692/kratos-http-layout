@@ -1,0 +1,25 @@
+mode: local
+
+name: aaa
+version: v1
+
+zone: India
+
+server:
+  http:
+    host: 0.0.0.0
+    port: 8090
+    timeout: 1s
+  monitorHttp:
+    host: 0.0.0.0
+    port: 8091
+  rpc-layout:
+    endpoint: 127.0.0.1:9999
+    timeout: 10
+    dialWithCredentials: false
+
+jwt:
+  secret: secret
+  tokenExpire: 24
+  issuer: alex
+  sub: bz

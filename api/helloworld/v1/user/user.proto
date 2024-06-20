@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+package user;
+option go_package = "/proto/account;user";
+import "google/protobuf/empty.proto";
+
+message Account {
+	int64 id = 1; // 自增ID
+	string pass = 2; // 密码
+	string email = 3; // email
+	string phone = 4; // 手机号
+}
+
+message GetAccountReq {
+	string phone = 1;
+}
+
+
+message Player {
+	int64 id = 1;
+	int64 account_id = 2; // 账户ID
+	int64 player_id = 3; // 玩家ID
+	string nickname = 4;
+	int32 gender = 5; // 性别
+	string avatar = 6; // 头像地址
+}
+
+message GetPlayerByIdReq {
+	int64 id = 1;
+}
+
+service UserService {
+	rpc GetAccount (GetAccountReq) returns (Account);
+
+	rpc GetPlayerById (google.protobuf.Empty) returns (Player);
+}
+
